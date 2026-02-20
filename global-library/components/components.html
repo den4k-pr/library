@@ -1,122 +1,176 @@
 <
 
 
-<section class="component-card" id="card-button__discount">
+<section class="component-card" id="card-footer__timer">
 <div class="component-header">
-  <h2>button__discount</h2>
+  <h2>footer__timer</h2>
   <div class="component-controls">
-    <button class="btn-add" onclick="addToProject('button__discount')">➕ Add</button>
-    <button class="btn-del" onclick="deleteFullComponent('button__discount')">🗑 Delete</button>
+    <button class="btn-add" onclick="addToProject('footer__timer')">➕ Add</button>
+    <button class="btn-del" onclick="deleteFullComponent('footer__timer')">🗑 Delete</button>
   </div>
 </div>
-<div class="tabs-nav"><button class="tab-link active" onclick="openTab(event, 'button__discount', 'preview')">Preview</button>
-<button class="tab-link" onclick="openTab(event, 'button__discount', 'html')">HTML</button>
-<button class="tab-link" onclick="openTab(event, 'button__discount', 'scss')">SCSS</button></div>
-<div class="tabs-content"><div id="tab-button__discount-preview" class="tab-panel active"><div class="component-body"><div class="button__discount-wrapper" data-component>
-    <button class="button__discount">
-        Join for 
-        <br>
-        €0.32/daily
-        <div class="button__discount-element">
-            <div class="button__discount-element-image"></div>
-            <span class="button__discount-element-price">-75% </span>
-            <span class="button__discount-element-title">OFF</span>
+<div class="tabs-nav"><button class="tab-link active" onclick="openTab(event, 'footer__timer', 'preview')">Preview</button>
+<button class="tab-link" onclick="openTab(event, 'footer__timer', 'html')">HTML</button>
+<button class="tab-link" onclick="openTab(event, 'footer__timer', 'scss')">SCSS</button>
+<button class="tab-link" onclick="openTab(event, 'footer__timer', 'js')">JS</button></div>
+<div class="tabs-content"><div id="tab-footer__timer-preview" class="tab-panel active"><div class="component-body"><footer class="footer" id="footer" data-component>
+        <div class="footer-bg">
+            <div class="footer-timer">
+                <div class="footer-timer-item">
+                    <h3 class="footer-timer-value">23</h3>
+                    <p class="footer-timer-time">hours</p>
+                </div>
+                <div class="footer-timer-item">
+                    <h3 class="footer-timer-value">58</h3>
+                    <p class="footer-timer-time">minutes</p>
+                </div>
+                <div class="footer-timer-item">
+                    <h3 class="footer-timer-value">33</h3>
+                    <p class="footer-timer-time">seconds</p>
+                </div>
+            </div>
+            <a href="https://zubalenok.kwiga.com/o/v43QfyBksQ5n/payment" class="footerButton">
+                <p>Yes, - 80% OFF NOW</p>
+                <span>Originally 119€ - now for less than 0,6€/day</span>
+            </a>
         </div>
-    </button>
-</div></div></div>
-<div id="tab-button__discount-html" class="tab-panel"><button class="copy-code-btn" onclick="copyCode('code-html-button__discount')">Copy HTML</button><pre><code id="code-html-button__discount">&lt;div class=&quot;button__discount-wrapper&quot; data-component&gt;
-    &lt;button class=&quot;button__discount&quot;&gt;
-        Join for 
-        &lt;br&gt;
-        €0.32/daily
-        &lt;div class=&quot;button__discount-element&quot;&gt;
-            &lt;div class=&quot;button__discount-element-image&quot;&gt;&lt;/div&gt;
-            &lt;span class=&quot;button__discount-element-price&quot;&gt;-75% &lt;/span&gt;
-            &lt;span class=&quot;button__discount-element-title&quot;&gt;OFF&lt;/span&gt;
+    </footer></div></div>
+<div id="tab-footer__timer-html" class="tab-panel"><button class="copy-code-btn" onclick="copyCode('code-html-footer__timer')">Copy HTML</button><pre><code id="code-html-footer__timer">&lt;footer class=&quot;footer&quot; id=&quot;footer&quot; data-component&gt;
+        &lt;div class=&quot;footer-bg&quot;&gt;
+            &lt;div class=&quot;footer-timer&quot;&gt;
+                &lt;div class=&quot;footer-timer-item&quot;&gt;
+                    &lt;h3 class=&quot;footer-timer-value&quot;&gt;23&lt;/h3&gt;
+                    &lt;p class=&quot;footer-timer-time&quot;&gt;hours&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;footer-timer-item&quot;&gt;
+                    &lt;h3 class=&quot;footer-timer-value&quot;&gt;58&lt;/h3&gt;
+                    &lt;p class=&quot;footer-timer-time&quot;&gt;minutes&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;footer-timer-item&quot;&gt;
+                    &lt;h3 class=&quot;footer-timer-value&quot;&gt;33&lt;/h3&gt;
+                    &lt;p class=&quot;footer-timer-time&quot;&gt;seconds&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;a href=&quot;https://zubalenok.kwiga.com/o/v43QfyBksQ5n/payment&quot; class=&quot;footerButton&quot;&gt;
+                &lt;p&gt;Yes, - 80% OFF NOW&lt;/p&gt;
+                &lt;span&gt;Originally 119€ - now for less than 0,6€/day&lt;/span&gt;
+            &lt;/a&gt;
         &lt;/div&gt;
-    &lt;/button&gt;
-&lt;/div&gt;</code></pre></div>
-<div id="tab-button__discount-scss" class="tab-panel"><button class="copy-code-btn" onclick="copyCode('code-scss-button__discount')">Copy SCSS</button><pre><code id="code-scss-button__discount">.button__discount-wrapper{
-  padding: 30px 0;
-}
+    &lt;/footer&gt;</code></pre></div>
+<div id="tab-footer__timer-scss" class="tab-panel"><button class="copy-code-btn" onclick="copyCode('code-scss-footer__timer')">Copy SCSS</button><pre><code id="code-scss-footer__timer">
+.footer {
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(150px);
+    width: 100%;
+    transition: all .5s ease;
 
-.button__discount {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(#D9341E, #C77757);
-  box-shadow: 0 4px 10px rgb(0 0 0 / 25%);
-  font-size: 25px;
-    font-weight: 700;
-  border-radius: 15px;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  padding-right: 30px;
-  margin: 0 auto;
-  font-family: Manrope, sans-serif;
-  height: 70px;
-
-  &amp;-element {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    right: -20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    &amp;-image{
-        position: absolute;
-        background-image: url(&#039;../assets/images/discount-frame.png&#039;);
+    .footer-bg {
+        background-image: url(../assets/images/footer.webp);
         background-repeat: no-repeat;
-        background-size: contain;
-        animation: spin 20s linear infinite;
-        z-index: 2;
+        background-size: 100% 100%;
+        padding: 12px 0;
+        max-width: 440px;
         width: 100%;
-        height: 100%;
+        margin: 0 auto;
     }
+
+    &amp;-timer {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        padding-bottom: 10px;
+
+        &amp;-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        &amp;-value {
+            border-radius: 150px;
+            width: 67px;
+            height: 38px;
+            background-color: #fff;
+            color: #000;
+            font-family: &quot;League Gothic&quot;, sans-serif;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 117%;
+            text-align: center;
+        }
+
+        &amp;-time {
+            font-weight: 500;
+            font-size: 10px;
+            font-family: Montserrat, sans-serif;
+            line-height: 100%;
+            text-align: center;
+            color: #fff;
+        }
+    }
+
+    .footerButton {
+        border-radius: 130px;
+        max-width: 320px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: &#039;Roboto&#039;, sans-serif;
+        margin: 0 auto;
+        height: 65px;
+        background: linear-gradient(90deg, #982f01 0%, #fe4e01 50.48%, #982f01 100%);
     
-    &amp;-price{
-        position: relative;
-        z-index: 3;
-        color: #ff4a1a;
-        font-weight: 900;
-        font-size: 23px;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 1.1;
-    }
+        p {
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 132%;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
 
-    &amp;-title{
-        position: relative;
-        z-index: 3;
-        font-weight: 900;
-        font-size: 23px;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 1.1;
-        color: #000;
+        span {
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 290%;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
     }
-  }
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.footer.active {
+    transform: translateY(0px);
+    opacity: 1;
+}</code></pre></div>
+<div id="tab-footer__timer-js" class="tab-panel"><button class="copy-code-btn" onclick="copyCode('code-js-footer__timer')">Copy JS</button><pre><code id="code-js-footer__timer">const footer__timer = () =&gt; {
+    const footer = document.getElementById(&#039;footer&#039;);
+    if (!footer) return;
 
-@media(max-width: 370px){
-  .button__discount-wrapper{
-    transform: scale(0.9);
-  }
-}</code></pre></div></div>
+    const handleScroll = () =&gt; {
+        if (window.scrollY &gt;= 200) {
+            footer.classList.add(&#039;active&#039;);
+        } else {
+            footer.classList.remove(&#039;active&#039;);
+        }
+    };
+
+    // Додаємо слухач подій
+    window.addEventListener(&#039;scroll&#039;, handleScroll);
+    
+    // Викликаємо один раз відразу, щоб перевірити стан при завантаженні
+    handleScroll(); 
+};
+
+export default footer__timer;</code></pre></div></div>
 </section>
