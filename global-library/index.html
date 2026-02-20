@@ -356,77 +356,89 @@
      * ПОВНЕ ВИДАЛЕННЯ КОМПОНЕНТА З GITHUB
      */
     async function deleteFullComponent(compName) {
-      const token = prompt("УВАГА! Це видалить файли з GitHub. Введіть ваш Token:");
-      if (!token) return;
+    const token = prompt("УВАГА! Це видалить файли з GitHub. Введіть ваш Token:");
+    if (!token) return;
 
-      const auth = { headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' } };
-      const base = `https://api.github.com/repos/den4k-pr/library/contents`;
+    // Стан візуального видалення (опціонально: додати лоадер)
+    const card = document.getElementById('card-' + compName);
+    if (card) card.style.opacity = '0.5';
 
-      try {
-        // 1. Отримуємо список файлів у папці компонента
+    const auth = { 
+        headers: { 
+            'Authorization': `token ${token}`, 
+            'Content-Type': 'application/json' 
+        } 
+    };
+    const base = `https://api.github.com/repos/den4k-pr/library/contents`;
+
+    try {
+        // 1. Отримуємо список файлів у папці компонента, щоб видалити їх
         const folderPath = `global-library/components/${compName}`;
         const folderRes = await fetch(`${base}/${folderPath}`, auth);
         
         if (folderRes.ok) {
-          const files = await folderRes.json();
-          // Видаляємо кожен файл у папці
-          for (let file of files) {
-            await fetch(`${base}/${file.path}`, {
-              method: 'DELETE',
-              headers: auth.headers,
-              body: JSON.stringify({ message: `Delete component file: ${file.name}`, sha: file.sha })
-            });
-          }
-          console.log(`✅ Папку ${compName} очищено.`);
+            const files = await folderRes.json();
+            for (let file of files) {
+                await fetch(`${base}/${file.path}`, {
+                    method: 'DELETE',
+                    headers: auth.headers,
+                    body: JSON.stringify({ 
+                        message: `🗑 Delete component file: ${file.name}`, 
+                        sha: file.sha 
+                    })
+                });
+            }
+            console.log(`✅ Файли компонента ${compName} видалені.`);
         }
 
-        // 2. Видаляємо запис із components.html
-        const htmlFileRes = await fetch(`${base}/global-library/components/components.html`, auth);
-        const htmlFileData = await htmlFileRes.json();
-        let htmlContent = decodeURIComponent(escape(atob(htmlFileData.content)));
+        // 2. Оновлюємо registry.json (видаляємо компонент зі списку)
+        const regPath = `global-library/components/registry.json`;
+        const regRes = await fetch(`${base}/${regPath}`, auth);
         
-        // Видаляємо блок між START і END коментарями
-        const htmlRegex = new RegExp(`[\\s\\S]*?`, 'g');
-        const newHtmlContent = htmlContent.replace(htmlRegex, '').trim();
+        if (regRes.ok) {
+            const regData = await regRes.json();
+            // Декодуємо контент (обробка Base64 з підтримкою юнікоду)
+            let content = decodeURIComponent(atob(regData.content.replace(/\s/g, '')).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
 
-        await fetch(`${base}/global-library/components/components.html`, {
-          method: 'PUT',
-          headers: auth.headers,
-          body: JSON.stringify({
-            message: `Remove ${compName} from library index`,
-            sha: htmlFileData.sha,
-            content: btoa(unescape(encodeURIComponent(newHtmlContent)))
-          })
-        });
+            let registry = JSON.parse(content);
+            
+            // Фільтруємо список
+            const newRegistry = registry.filter(name => name !== compName);
 
-        // 3. Видаляємо стилі з main.css
-        const cssFileRes = await fetch(`${base}/global-library/main.css`, auth);
-        const cssFileData = await cssFileRes.json();
-        let cssContent = decodeURIComponent(escape(atob(cssFileData.content)));
-        
-        const cssRegex = new RegExp(`/\\* CSS_START:${compName} \\*/[\\s\\S]*?/\\* CSS_END:${compName} \\*/`, 'g');
-        const newCssContent = cssContent.replace(cssRegex, '').trim();
+            // Відправляємо оновлений реєстр назад
+            await fetch(`${base}/${regPath}`, {
+                method: 'PUT',
+                headers: auth.headers,
+                body: JSON.stringify({
+                    message: `⚙️ Update registry: remove ${compName}`,
+                    sha: regData.sha,
+                    content: btoa(unescape(encodeURIComponent(JSON.stringify(newRegistry, null, 2))))
+                })
+            });
+            console.log(`✅ Реєстр оновлено.`);
+        }
 
-        await fetch(`${base}/global-library/main.css`, {
-          method: 'PUT',
-          headers: auth.headers,
-          body: JSON.stringify({
-            message: `Remove ${compName} styles`,
-            sha: cssFileData.sha,
-            content: btoa(unescape(encodeURIComponent(newCssContent)))
-          })
-        });
+        // 3. Видаляємо з DOM без перезавантаження
+        if (card) {
+            card.style.transition = 'all 0.5s ease';
+            card.style.transform = 'translateX(100px)';
+            card.style.opacity = '0';
+            setTimeout(() => card.remove(), 500);
+        }
 
-        alert("🔥 Компонент [" + compName + "] повністю видалено з репозиторію!");
-        location.reload();
+        alert(`🔥 Компонент [${compName}] успішно видалено!`);
 
-      } catch (e) {
+    } catch (e) {
+        if (card) card.style.opacity = '1';
         alert("Помилка під час видалення. Подробиці в консолі.");
         console.error(e);
-      }
     }
+}
   </script>
 </body>
 </html>
+
 
 
