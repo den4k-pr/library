@@ -156,7 +156,7 @@
     async function loadComponents() {
       try {
         // Додаємо випадкове число, щоб браузер не кешував старі версії файлу
-        const response = await fetch('components.html?v=' + Date.now());
+        const response = await fetch('components/components.html?v=' + Date.now());
         if (!response.ok) throw new Error('Сховище порожнє');
         
         const html = await response.text();
@@ -261,4 +261,5 @@
   </script>
 </body>
 </html>
+
 
