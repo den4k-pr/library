@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
   <link rel="stylesheet" href="./fonts.css">
   <link rel="stylesheet" href="./main.css">
 
@@ -26,13 +27,11 @@
       line-height: 1.5;
     }
 
-    p a {
-    text-decoration: none !important;
-  }
+    p a { text-decoration: none !important; }
 
     /* --- СТИЛІ БІБЛІОТЕКИ (UI LAYER) --- */
     header.lib-header {
-      padding: 2rem;
+      padding: 3rem 2rem;
       background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
       border-bottom: 1px solid #334155;
       margin-bottom: 3rem;
@@ -44,12 +43,38 @@
       background: linear-gradient(to right, #38bdf8, #818cf8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
     }
 
     .lib-container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px 100px;
+    }
+
+    /* Пошук */
+    .search-wrapper {
+      margin-top: 20px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #libSearch {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+      transition: all 0.3s ease;
+    }
+    #libSearch:focus {
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+      border-color: #818cf8;
     }
 
     /* Картки компонентів */
@@ -85,7 +110,7 @@
       gap: 10px;
     }
 
-    /* Кнопки */
+    /* Кнопки керування */
     .component-controls button {
       padding: 8px 16px;
       border-radius: 8px;
@@ -102,29 +127,66 @@
     .btn-add { background-color: #0ea5e9; color: white; }
     .btn-add:hover { background-color: #0284c7; transform: translateY(-1px); }
 
-    .btn-del { background-color: rgba(244, 63, 94, 0.1); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.2) !important; }
+    .btn-del { 
+      background-color: rgba(244, 63, 94, 0.1); 
+      color: #fb7185; 
+      border: 1px solid rgba(244, 63, 94, 0.2) !important; 
+    }
     .btn-del:hover { background-color: #f43f5e; color: white; }
 
-    /* Стилі для вкладок та коду */
+    /* Вкладки */
     .tabs-nav { display: flex; background: #161e2d; border-bottom: 1px solid #334155; }
-    .tab-link { padding: 12px 24px; background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 13px; font-weight: 600; }
+    .tab-link { 
+      padding: 12px 24px; 
+      background: none; 
+      border: none; 
+      color: #94a3b8; 
+      cursor: pointer; 
+      font-size: 13px; 
+      font-weight: 600; 
+      transition: all 0.2s;
+    }
+    .tab-link:hover { color: #f8fafc; background: rgba(255,255,255,0.05); }
     .tab-link.active { color: #38bdf8; background: #1e293b; border-bottom: 2px solid #38bdf8; }
+    
     .tab-panel { display: none; position: relative; }
     .tab-panel.active { display: block; }
     
-    pre { padding: 20px; background: #0f172a; overflow-x: auto; max-height: 500px; font-family: 'Fira Code', monospace; font-size: 13px; color: #e2e8f0; }
-    .copy-code-btn { position: absolute; top: 10px; right: 10px; padding: 5px 10px; background: #334155; color: #fff; border: 1px solid #475569; border-radius: 4px; cursor: pointer; font-size: 11px; }
+    /* Область коду */
+    pre { 
+      padding: 20px; 
+      background: #0f172a; 
+      overflow-x: auto; 
+      max-height: 500px; 
+      font-family: 'Fira Code', monospace; 
+      font-size: 13px; 
+      color: #e2e8f0; 
+    }
+    .copy-code-btn { 
+      position: absolute; 
+      top: 10px; 
+      right: 10px; 
+      padding: 5px 10px; 
+      background: #334155; 
+      color: #fff; 
+      border: 1px solid #475569; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 11px; 
+      z-index: 5;
+    }
+    .copy-code-btn:hover { background: #475569; }
 
-    /* Контейнер самого компонента (тут живуть твої стилі з main.css) */
+    /* Контейнер самого компонента (Preview) */
     .component-body {
-      background: #d7d7d7;
+      background: #d7d7d7; /* Світлий фон для контрасту компонентів */
       color: #333;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      /* align-items: center; */
       position: relative;
-      min-height: 100px;
+      min-height: 150px;
+      padding: 40px;
     }
 
     /* Додатковий фікс для Slick всередині бібліотеки */
@@ -136,14 +198,14 @@
   <header class="lib-header">
     <h1>Global UI Library</h1>
     <p style="color: #64748b; margin-top: 10px;">Система компонентів проекту</p>
-    <div style="margin-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto;">
-    <input 
-      type="text" 
-      id="libSearch" 
-      placeholder="Пошук компонента (наприклад: slider)..." 
-      style="width: 100%; padding: 12px 20px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; font-size: 16px; outline: none; border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);"
-    >
-  </div>
+    
+    <div class="search-wrapper">
+      <input 
+        type="text" 
+        id="libSearch" 
+        placeholder="Пошук компонента (наприклад: button)..."
+      >
+    </div>
   </header>
 
   <main class="lib-container" id="lib-content">
@@ -153,156 +215,201 @@
   <script src="./main.js"></script>
 
   <script>
+    /**
+     * ЗАВАНТАЖЕННЯ КОМПОНЕНТІВ
+     */
     async function loadComponents() {
       try {
-        // Додаємо випадкове число, щоб браузер не кешував старі версії файлу
+        // Уникаємо кешування через параметр v
         const response = await fetch('components/components.html?v=' + Date.now());
         if (!response.ok) throw new Error('Сховище порожнє');
         
         const html = await response.text();
         document.getElementById('lib-content').innerHTML = html;
 
-        // Після вставки фіксуємо position relative для першого елемента
-        document.querySelectorAll('.component-body').forEach(body => {
-          if (body.firstElementChild) body.firstElementChild.style.position = 'relative';
-        });
+        // Авто-фікс позиціонування для кожного завантаженого компонента
+        fixComponentStyles();
       } catch (err) {
-        document.getElementById('lib-content').innerHTML = '<p style="text-align:center;">Додайте перший компонент через transfer.js</p>';
+        document.getElementById('lib-content').innerHTML = `
+          <div style="text-align:center; padding: 50px;">
+            <p style="color: #94a3b8;">Бібліотека порожня або файл не знайдено.</p>
+            <p style="font-size: 12px; color: #64748b; margin-top: 10px;">Використовуйте scripts/transfer.js для додавання компонентів.</p>
+          </div>`;
       }
     }
 
-    // Запускаємо завантаження
+    function fixComponentStyles() {
+      document.querySelectorAll('.component-body').forEach(body => {
+        if (body.firstElementChild) {
+          body.firstElementChild.style.position = 'relative';
+        }
+      });
+    }
+
+    // Запуск при завантаженні сторінки
     window.onload = loadComponents;
     
-  document.getElementById('libSearch').addEventListener('input', function(e) {
-  const query = e.target.value.toLowerCase().trim();
-  const cards = document.querySelectorAll('.component-card');
+    /**
+     * ПОШУК ПО БІБЛІОТЕЦІ
+     */
+    document.getElementById('libSearch').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.component-card');
 
-  cards.forEach(card => {
-    // Беремо назву з заголовка h2 всередині картки
-    const name = card.querySelector('h2').innerText.toLowerCase();
-    
-    if (name.includes(query)) {
-      card.style.display = ''; // Показуємо
-      // Можна додати анімацію появи
-      card.style.opacity = '1';
-    } else {
-      card.style.display = 'none'; // Ховаємо
-    }
-  });
-});
+      cards.forEach(card => {
+        const name = card.querySelector('h2').innerText.toLowerCase();
+        if (name.includes(query)) {
+          card.style.display = ''; 
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
 
-  function openTab(evt, compName, tabName) {
+    /**
+     * ПЕРЕМИКАННЯ ВКЛАДОК (Preview / HTML)
+     */
+    function openTab(evt, compName, tabName) {
       const card = document.getElementById('card-' + compName);
+      if (!card) return;
+
+      // Ховаємо всі панелі в межах поточної картки
       card.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      
+      // Деактивуємо всі кнопки в межах поточної картки
       card.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
-      document.getElementById('tab-' + compName + '-' + tabName).classList.add('active');
+      
+      // Активуємо потрібну
+      const targetPanel = card.querySelector(`#tab-${compName}-${tabName}`);
+      if (targetPanel) targetPanel.classList.add('active');
+      
       evt.currentTarget.classList.add('active');
     }
 
-    // Копіювання коду
+    /**
+     * КОПІЮВАННЯ КОДУ
+     */
     function copyCode(id) {
-      const text = document.getElementById(id).innerText;
+      const element = document.getElementById(id);
+      if (!element) return;
+      
+      const text = element.innerText;
       navigator.clipboard.writeText(text).then(() => {
         const btn = event.target;
         const original = btn.innerText;
         btn.innerText = '✅ Done';
-        setTimeout(() => btn.innerText = original, 2000);
+        btn.style.borderColor = '#10b981';
+        btn.style.color = '#10b981';
+        
+        setTimeout(() => {
+          btn.innerText = original;
+          btn.style.borderColor = '';
+          btn.style.color = '';
+        }, 2000);
       });
     }
 
-    // Твій запит: position relative для першого нащадка
-    document.querySelectorAll('.component-body').forEach(body => {
-      if (body.firstElementChild) body.firstElementChild.style.position = 'relative';
-    });
-    document.querySelectorAll('.component-body').forEach(body => {
-      if (body.firstElementChild) {
-        body.firstElementChild.style.position = 'relative';
-      }
-    });
+    /**
+     * API ВИКЛИКИ НА ЛОКАЛЬНИЙ СЕРВЕР (Для додавання в проект)
+     */
     async function apiCall(endpoint, componentName) {
       try {
         const response = await fetch('http://localhost:9000/api/' + endpoint, {
           method: 'POST',
-          mode: 'cors', // Дозволяє запит з браузера на локалку
+          mode: 'cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ componentName })
-      });
-        const data = await response.json();
-        return data;
+        });
+        return await response.json();
       } catch (err) {
         console.error('API Error:', err);
-        return { success: false, error: 'Server error' };
+        return { success: false, error: 'Локальний сервер не відповідає (порт 9000)' };
       }
     }
 
     async function addToProject(name) {
       const res = await apiCall('add-component', name);
       if (res.success) {
-        alert('✅ Компонент "' + name + '" додано в проект!');
+        alert('✅ Компонент "' + name + '" успішно додано у ваш локальний проект!');
       } else {
         alert('❌ Помилка: ' + (res.error || 'невідомо'));
       }
     }
 
-async function deleteFullComponent(compName) {
-  const token = prompt("Введіть GitHub Token для видалення:");
-  if (!token) return;
+    /**
+     * ПОВНЕ ВИДАЛЕННЯ КОМПОНЕНТА З GITHUB
+     */
+    async function deleteFullComponent(compName) {
+      const token = prompt("УВАГА! Це видалить файли з GitHub. Введіть ваш Token:");
+      if (!token) return;
 
-  const auth = { headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' } };
-  const base = `https://api.github.com/repos/den4k-pr/library/contents`;
+      const auth = { headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' } };
+      const base = `https://api.github.com/repos/den4k-pr/library/contents`;
 
-  try {
-    // 1. Видаляємо папку з файлами (треба видалити кожен файл всередині)
-    const folderRes = await fetch(`${base}/global-library/components/row/${compName}`, auth);
-    if (folderRes.ok) {
-      const files = await folderRes.json();
-      for (let file of files) {
-        await fetch(`${base}/${file.path}`, {
-          method: 'DELETE',
-          ...auth,
-          body: JSON.stringify({ message: `Delete ${file.name}`, sha: file.sha })
+      try {
+        // 1. Отримуємо список файлів у папці компонента
+        const folderPath = `global-library/components/${compName}`;
+        const folderRes = await fetch(`${base}/${folderPath}`, auth);
+        
+        if (folderRes.ok) {
+          const files = await folderRes.json();
+          // Видаляємо кожен файл у папці
+          for (let file of files) {
+            await fetch(`${base}/${file.path}`, {
+              method: 'DELETE',
+              headers: auth.headers,
+              body: JSON.stringify({ message: `Delete component file: ${file.name}`, sha: file.sha })
+            });
+          }
+          console.log(`✅ Папку ${compName} очищено.`);
+        }
+
+        // 2. Видаляємо запис із components.html
+        const htmlFileRes = await fetch(`${base}/global-library/components/components.html`, auth);
+        const htmlFileData = await htmlFileRes.json();
+        let htmlContent = decodeURIComponent(escape(atob(htmlFileData.content)));
+        
+        // Видаляємо блок між START і END коментарями
+        const htmlRegex = new RegExp(`[\\s\\S]*?`, 'g');
+        const newHtmlContent = htmlContent.replace(htmlRegex, '').trim();
+
+        await fetch(`${base}/global-library/components/components.html`, {
+          method: 'PUT',
+          headers: auth.headers,
+          body: JSON.stringify({
+            message: `Remove ${compName} from library index`,
+            sha: htmlFileData.sha,
+            content: btoa(unescape(encodeURIComponent(newHtmlContent)))
+          })
         });
+
+        // 3. Видаляємо стилі з main.css
+        const cssFileRes = await fetch(`${base}/global-library/main.css`, auth);
+        const cssFileData = await cssFileRes.json();
+        let cssContent = decodeURIComponent(escape(atob(cssFileData.content)));
+        
+        const cssRegex = new RegExp(`/\\* CSS_START:${compName} \\*/[\\s\\S]*?/\\* CSS_END:${compName} \\*/`, 'g');
+        const newCssContent = cssContent.replace(cssRegex, '').trim();
+
+        await fetch(`${base}/global-library/main.css`, {
+          method: 'PUT',
+          headers: auth.headers,
+          body: JSON.stringify({
+            message: `Remove ${compName} styles`,
+            sha: cssFileData.sha,
+            content: btoa(unescape(encodeURIComponent(newCssContent)))
+          })
+        });
+
+        alert("🔥 Компонент [" + compName + "] повністю видалено з репозиторію!");
+        location.reload();
+
+      } catch (e) {
+        alert("Помилка під час видалення. Подробиці в консолі.");
+        console.error(e);
       }
     }
-
-    // 2. Чистимо components.html
-    const htmlFile = await (await fetch(`${base}/global-library/components/components.html`, auth)).json();
-    let htmlContent = decodeURIComponent(escape(atob(htmlFile.content)));
-    const htmlRegex = new RegExp(`[\\s\\S]*?`, 'g');
-    
-    await fetch(`${base}/global-library/components/components.html`, {
-      method: 'PUT', ...auth,
-      body: JSON.stringify({
-        message: `Remove ${compName} from HTML`,
-        sha: htmlFile.sha,
-        content: btoa(unescape(encodeURIComponent(htmlContent.replace(htmlRegex, ''))))
-      })
-    });
-
-    // 3. Чистимо main.css
-    const cssFile = await (await fetch(`${base}/global-library/main.css`, auth)).json();
-    let cssContent = decodeURIComponent(escape(atob(cssFile.content)));
-    const cssRegex = new RegExp(`/\\* CSS_START:${compName} \\*/[\\s\\S]*?/\\* CSS_END:${compName} \\*/`, 'g');
-
-    await fetch(`${base}/global-library/main.css`, {
-      method: 'PUT', ...auth,
-      body: JSON.stringify({
-        message: `Remove ${compName} from CSS`,
-        sha: cssFile.sha,
-        content: btoa(unescape(encodeURIComponent(cssContent.replace(cssRegex, ''))))
-      })
-    });
-
-    alert("🔥 Компонент повністю винищено!");
-    location.reload();
-  } catch (e) {
-    alert("Помилка при видаленні. Перевір консоль.");
-    console.error(e);
-  }
-}  </script>
+  </script>
 </body>
 </html>
-
-
-
