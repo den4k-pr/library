@@ -1,0 +1,96 @@
+
+.footer {
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(150px);
+    width: 100%;
+    transition: all .5s ease;
+
+    .footer-bg {
+        background-image: url(../assets/images/footer.webp);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding: 12px 0;
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &-timer {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        padding-bottom: 10px;
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        &-value {
+            border-radius: 150px;
+            width: 67px;
+            height: 38px;
+            background-color: #fff;
+            color: #000;
+            font-family: "League Gothic", sans-serif;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 117%;
+            text-align: center;
+        }
+
+        &-time {
+            font-weight: 500;
+            font-size: 10px;
+            font-family: Montserrat, sans-serif;
+            line-height: 100%;
+            text-align: center;
+            color: #fff;
+        }
+    }
+
+    .footerButton {
+        border-radius: 130px;
+        max-width: 320px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: 'Roboto', sans-serif;
+        margin: 0 auto;
+        height: 65px;
+        background: linear-gradient(90deg, #982f01 0%, #fe4e01 50.48%, #982f01 100%);
+    
+        p {
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 132%;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
+
+        span {
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 290%;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}
+
+.footer.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
