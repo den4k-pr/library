@@ -271,21 +271,12 @@
      * ПЕРЕМИКАННЯ ВКЛАДОК (Preview / HTML)
      */
     function openTab(evt, compName, tabName) {
-      const card = document.getElementById('card-' + compName);
-      if (!card) return;
-
-      // Ховаємо всі панелі в межах поточної картки
-      card.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      
-      // Деактивуємо всі кнопки в межах поточної картки
-      card.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
-      
-      // Активуємо потрібну
-      const targetPanel = card.querySelector(`#tab-${compName}-${tabName}`);
-      if (targetPanel) targetPanel.classList.add('active');
-      
-      evt.currentTarget.classList.add('active');
-    }
+    const card = document.getElementById('card-' + compName);
+    card.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    card.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+    card.querySelector('#tab-' + compName + '-' + tabName).classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
 
     /**
      * КОПІЮВАННЯ КОДУ
@@ -413,3 +404,4 @@
   </script>
 </body>
 </html>
+
