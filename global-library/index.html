@@ -146,15 +146,34 @@
   </div>
   </header>
 
-  <main class="lib-container">
-    
-      
-    
+  <main class="lib-container" id="lib-content">
+      <p style="text-align: center; color: #94a3b8;">Завантаження бібліотеки...</p>
   </main>
 
   <script src="./main.js"></script>
 
   <script>
+    async function loadComponents() {
+      try {
+        // Додаємо випадкове число, щоб браузер не кешував старі версії файлу
+        const response = await fetch('components.html?v=' + Date.now());
+        if (!response.ok) throw new Error('Сховище порожнє');
+        
+        const html = await response.text();
+        document.getElementById('lib-content').innerHTML = html;
+
+        // Після вставки фіксуємо position relative для першого елемента
+        document.querySelectorAll('.component-body').forEach(body => {
+          if (body.firstElementChild) body.firstElementChild.style.position = 'relative';
+        });
+      } catch (err) {
+        document.getElementById('lib-content').innerHTML = '<p style="text-align:center;">Додайте перший компонент через transfer.js</p>';
+      }
+    }
+
+    // Запускаємо завантаження
+    window.onload = loadComponents;
+    
   document.getElementById('libSearch').addEventListener('input', function(e) {
   const query = e.target.value.toLowerCase().trim();
   const cards = document.querySelectorAll('.component-card');
@@ -242,3 +261,4 @@
   </script>
 </body>
 </html>
+
