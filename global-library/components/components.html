@@ -1,4 +1,4 @@
-undefined
+u
 
 <section class="component-card" id="card-button__discount">
   <div class="component-header">
@@ -10,9 +10,12 @@ undefined
   </div>
   <div class="tabs-nav">
     <button class="tab-link active" onclick="openTab(event, 'button__discount', 'preview')">Preview</button>
-    <button class="tab-link" onclick="openTab(event, 'button__discount', 'html')">HTML Code</button>
+<button class="tab-link" onclick="openTab(event, 'button__discount', 'html')">HTML</button>
+<button class="tab-link" onclick="openTab(event, 'button__discount', 'scss')">SCSS</button>
+
   </div>
   <div class="tabs-content">
+    
     <div id="tab-button__discount-preview" class="tab-panel active">
         <div class="component-body"><div class="button__discount-wrapper" data-component>
     <button class="button__discount">
@@ -28,8 +31,8 @@ undefined
 </div></div>
     </div>
     <div id="tab-button__discount-html" class="tab-panel">
-        <button class="copy-code-btn" onclick="copyCode('code-button__discount')">Copy Code</button>
-        <pre><code id="code-button__discount">&lt;div class=&quot;button__discount-wrapper&quot; data-component&gt;
+        <button class="copy-code-btn" onclick="copyCode('code-html-button__discount')">Copy HTML</button>
+        <pre><code id="code-html-button__discount">&lt;div class=&quot;button__discount-wrapper&quot; data-component&gt;
     &lt;button class=&quot;button__discount&quot;&gt;
         Join for 
         &lt;br&gt;
@@ -42,5 +45,92 @@ undefined
     &lt;/button&gt;
 &lt;/div&gt;</code></pre>
     </div>
+    <div id="tab-button__discount-scss" class="tab-panel">
+        <button class="copy-code-btn" onclick="copyCode('code-scss-button__discount')">Copy SCSS</button>
+        <pre><code id="code-scss-button__discount">.button__discount-wrapper{
+  padding: 30px 0;
+}
+
+.button__discount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#D9341E, #C77757);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 25%);
+  font-size: 25px;
+    font-weight: 700;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  padding-right: 30px;
+  margin: 0 auto;
+  font-family: Manrope, sans-serif;
+  height: 70px;
+
+  &amp;-element {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &amp;-image{
+        position: absolute;
+        background-image: url(&#039;../assets/images/discount-frame.png&#039;);
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: spin 20s linear infinite;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &amp;-price{
+        position: relative;
+        z-index: 3;
+        color: #ff4a1a;
+        font-weight: 900;
+        font-size: 23px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    &amp;-title{
+        position: relative;
+        z-index: 3;
+        font-weight: 900;
+        font-size: 23px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.1;
+        color: #000;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media(max-width: 370px){
+  .button__discount-wrapper{
+    transform: scale(0.9);
+  }
+}</code></pre>
+    </div>
   </div>
 </section>
+n
