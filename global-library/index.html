@@ -51,6 +51,19 @@
       padding: 0 20px 100px;
     }
 
+    .tabs-content { background: #0f172a; min-height: 200px; }
+    .tab-panel pre { margin: 0; border-radius: 0; background: #010409; }
+    
+    /* Приховуємо пусті таби якщо коду немає */
+    .tab-panel:not(.active) { display: none; }
+    
+    .component-body {
+        background: #f1f5f9; /* Світлий фон для прев'ю */
+        padding: 20px;
+        min-height: 100px;
+        color: initial; /* Скидаємо колір тексту бібліотеки */
+    }
+
     /* Пошук */
     .search-wrapper {
       margin-top: 20px;
@@ -218,45 +231,31 @@
     async function loadLibrary() {
     const container = document.getElementById('lib-content');
     try {
-      // 1. Отримуємо список компонентів
       const regRes = await fetch('components/registry.json?v=' + Date.now());
       const registry = await regRes.json();
-      
-      container.innerHTML = ''; // Очищуємо лоадер
+      container.innerHTML = '';
 
-      if (registry.length === 0) {
-        container.innerHTML = '<p style="text-align:center;">Бібліотека порожня</p>';
-        return;
-      }
+      for (const name of registry) {
+        const res = await fetch(`components/${name}/view.html?v=` + Date.now());
+        const html = await res.text();
+        
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+        const section = temp.querySelector('section');
+        
+        // 1. Додаємо HTML в контейнер
+        container.appendChild(section);
 
-      // 2. Завантажуємо кожен компонент окремо
-      for (const compName of registry) {
-        try {
-          const compRes = await fetch(`components/${compName}/view.html?v=` + Date.now());
-          const compHtml = await compRes.text();
-          
-          const wrapper = document.createElement('div');
-          wrapper.innerHTML = compHtml;
-          
-          // Важливо: скрипти всередині innerHTML не виконуються самі
-          // Тому ми переносимо їх вручну
-          container.appendChild(wrapper.firstElementChild);
-          
-          const script = wrapper.querySelector('script');
-          if (script) {
+        // 2. Виконуємо скрипт ПІСЛЯ того як HTML вже в DOM
+        const script = temp.querySelector('script[data-logic]');
+        if (script) {
             const newScript = document.createElement('script');
             newScript.textContent = script.textContent;
             document.body.appendChild(newScript);
-          }
-        } catch (err) {
-          console.error(`Не вдалося завантажити ${compName}`);
         }
       }
-    } catch (e) {
-      container.innerHTML = '<p style="text-align:center; color:red;">Помилка реєстру</p>';
-    }
+    } catch (e) { console.error('Registry error', e); }
   }
-    
 
     function fixComponentStyles() {
       document.querySelectorAll('.component-body').forEach(body => {
@@ -290,11 +289,16 @@
     /**
      * ПЕРЕМИКАННЯ ВКЛАДОК (Preview / HTML)
      */
-    function openTab(evt, compName, tabName) {
+    // Функція перемикання табів (універсальна)
+  function openTab(evt, compName, tabName) {
     const card = document.getElementById('card-' + compName);
+    // Ховаємо всі панелі в межах цієї картки
     card.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    // Деактивуємо всі кнопки в межах цієї картки
     card.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
-    card.querySelector('#tab-' + compName + '-' + tabName).classList.add('active');
+    
+    // Показуємо потрібну
+    card.querySelector(`#tab-${compName}-${tabName}`).classList.add('active');
     evt.currentTarget.classList.add('active');
   }
 
@@ -424,6 +428,5 @@
   </script>
 </body>
 </html>
-
 
 
