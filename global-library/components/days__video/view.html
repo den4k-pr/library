@@ -1,0 +1,470 @@
+<section class="component-card" id="card-days__video" data-name="days__video">
+  <style>.days__video {
+  padding: 0 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  justify-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(2, 190px);
+  gap: 10px;
+}
+.days__video .day__video {
+  background: radial-gradient(57.46% 57.46% at 50% 50%, #FF6451 0%, #030202 100%);
+  border-radius: 20px;
+  border: 1px solid #FD351D;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 178px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.days__video .day__video-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 121%;
+  text-align: center;
+  color: #fff;
+  padding-top: 10px;
+  font-family: "Roboto", sans-serif;
+}
+.days__video .day__video-text {
+  padding: 10px 5px 10px 25px;
+  font-weight: 400;
+  font-size: 14px;
+  list-style: initial;
+  padding: 10px 25px;
+  line-height: 121%;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.days__video .day__video .video-wrapper {
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #FD351D;
+  border-radius: 20px;
+  max-height: 108px;
+  overflow: hidden;
+}
+.days__video .day__video .video-wrapper .day-video {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  max-height: 108px;
+}
+.days__video .day__video .video-wrapper .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 1px solid #fff;
+  cursor: pointer;
+  background: linear-gradient(203deg, #f19090 0%, #ff361e 100%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.days__video .day__video .video-wrapper .play-btn-img {
+  width: 12px;
+  height: 12px;
+}
+
+@media (max-width: 400px) {
+  .days__video {
+    grid-template-columns: repeat(2, 170px);
+    grid-gap: 10px;
+    gap: 10px;
+  }
+  .days__video .day__video-text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 385px) {
+  .days__video {
+    grid-template-columns: repeat(2, 150px);
+    grid-gap: 10px;
+    gap: 10px;
+  }
+}</style>
+
+  <div class="component-header">
+    <h2>days__video</h2>
+    <div class="component-controls">
+      <button class="btn-add" onclick="addToProject('days__video')">➕ Add</button>
+      <button class="btn-del" onclick="deleteFullComponent('days__video')">🗑 Delete</button>
+    </div>
+  </div>
+
+  <div class="tabs-nav">
+    <button class="tab-link active" onclick="openTab(event, 'days__video', 'preview')">Preview</button>
+    <button class="tab-link" onclick="openTab(event, 'days__video', 'html')">HTML</button>
+    <button class="tab-link" onclick="openTab(event, 'days__video', 'scss')">SCSS</button>
+    <button class="tab-link" onclick="openTab(event, 'days__video', 'js')">JS</button>
+  </div>
+
+  <div class="tabs-content">
+    <div id="tab-days__video-preview" class="tab-panel active">
+      <div class="component-body"><div class="days__video" data-component>
+    <div class="day__video">
+        <h3 class="day__video-title">
+            Day 1
+        </h3>
+        <ul class="day__video-text">
+            <li>
+                Less stiffness in hips &amp; lower back
+            </li>
+            <li>
+                Body feels lighter after 1st training
+            </li>
+        </ul>
+        <div class="video-wrapper">
+            <video class="day__video-video" poster="./assets/posters/poster-1.webp" src="./assets/video/video-1.mp4" muted playsinline loop></video>
+            <div class="play-btn">
+                <img class="play-btn-img" src="./assets/images/play.png" alt="Play">
+            </div>
+        </div>
+
+    </div>
+    <div class="day__video">
+        <h3 class="day__video-title">
+            Day 11
+        </h3>
+        <ul class="day__video-text">
+            <li>
+                Transitions become effortless.
+            </li>
+            <li>
+                Hip release, smooth movements
+            </li>
+        </ul>
+        <div class="video-wrapper">
+            <video class="day__video-video" poster="./assets/posters/poster-2.webp" src="./assets/video/video-2.mp4" muted playsinline loop></video>
+            <div class="play-btn">
+            <img class="play-btn-img" src="./assets/images/play.png" alt="Play">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="day__video">
+        <h3 class="day__video-title">
+            Day 24
+        </h3>
+        <ul class="day__video-text">
+            <li>
+                Deeper stretches without pain
+            </li>
+            <li>
+                Better posture &amp; core control
+            </li>
+        </ul>
+        <div class="video-wrapper">
+            <video class="day__video-video" poster="./assets/posters/poster-3.webp" src="./assets/video/video-3.mp4" muted playsinline loop></video>
+            <div class="play-btn">
+            <img class="play-btn-img" src="./assets/images/play.png" alt="Play">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="day__video">
+        <h3 class="day__video-title">
+            Day 42
+        </h3>
+        <ul class="day__video-text">
+            <li>
+                Full-body wide range of movement with strength, control, &amp; stability.
+            </li>
+        </ul>
+        <div class="video-wrapper">
+            <video class="day__video-video" poster="./assets/posters/poster-4.webp" src="./assets/video/video-4.mp4" muted playsinline loop></video>
+            <div class="play-btn">
+            <img class="play-btn-img" src="./assets/images/play.png" alt="Play">
+            </div>
+        </div>
+
+
+    </div>
+</div></div>
+    </div>
+    
+    <div id="tab-days__video-html" class="tab-panel">
+      <button class="copy-code-btn" onclick="copyCode('code-h-days__video')">Copy</button>
+      <pre><code id="code-h-days__video">&lt;div class=&quot;days__video&quot; data-component&gt;
+    &lt;div class=&quot;day__video&quot;&gt;
+        &lt;h3 class=&quot;day__video-title&quot;&gt;
+            Day 1
+        &lt;/h3&gt;
+        &lt;ul class=&quot;day__video-text&quot;&gt;
+            &lt;li&gt;
+                Less stiffness in hips &amp;amp; lower back
+            &lt;/li&gt;
+            &lt;li&gt;
+                Body feels lighter after 1st training
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;video-wrapper&quot;&gt;
+            &lt;video class=&quot;day__video-video&quot; poster=&quot;.././assets/posters/poster-1.webp&quot; src=&quot;.././assets/video/video-1.mp4&quot; muted playsinline loop&gt;&lt;/video&gt;
+            &lt;div class=&quot;play-btn&quot;&gt;
+                &lt;img class=&quot;play-btn-img&quot; src=&quot;./assets/images/play.png&quot; alt=&quot;Play&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&quot;day__video&quot;&gt;
+        &lt;h3 class=&quot;day__video-title&quot;&gt;
+            Day 11
+        &lt;/h3&gt;
+        &lt;ul class=&quot;day__video-text&quot;&gt;
+            &lt;li&gt;
+                Transitions become effortless.
+            &lt;/li&gt;
+            &lt;li&gt;
+                Hip release, smooth movements
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;video-wrapper&quot;&gt;
+            &lt;video class=&quot;day__video-video&quot; poster=&quot;.././assets/posters/poster-2.webp&quot; src=&quot;.././assets/video/video-2.mp4&quot; muted playsinline loop&gt;&lt;/video&gt;
+            &lt;div class=&quot;play-btn&quot;&gt;
+            &lt;img class=&quot;play-btn-img&quot; src=&quot;./assets/images/play.png&quot; alt=&quot;Play&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+
+    &lt;/div&gt;
+    &lt;div class=&quot;day__video&quot;&gt;
+        &lt;h3 class=&quot;day__video-title&quot;&gt;
+            Day 24
+        &lt;/h3&gt;
+        &lt;ul class=&quot;day__video-text&quot;&gt;
+            &lt;li&gt;
+                Deeper stretches without pain
+            &lt;/li&gt;
+            &lt;li&gt;
+                Better posture &amp;amp; core control
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;video-wrapper&quot;&gt;
+            &lt;video class=&quot;day__video-video&quot; poster=&quot;.././assets/posters/poster-3.webp&quot; src=&quot;.././assets/video/video-3.mp4&quot; muted playsinline loop&gt;&lt;/video&gt;
+            &lt;div class=&quot;play-btn&quot;&gt;
+            &lt;img class=&quot;play-btn-img&quot; src=&quot;./assets/images/play.png&quot; alt=&quot;Play&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+
+    &lt;/div&gt;
+    &lt;div class=&quot;day__video&quot;&gt;
+        &lt;h3 class=&quot;day__video-title&quot;&gt;
+            Day 42
+        &lt;/h3&gt;
+        &lt;ul class=&quot;day__video-text&quot;&gt;
+            &lt;li&gt;
+                Full-body wide range of movement with strength, control, &amp;amp; stability.
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;video-wrapper&quot;&gt;
+            &lt;video class=&quot;day__video-video&quot; poster=&quot;.././assets/posters/poster-4.webp&quot; src=&quot;.././assets/video/video-4.mp4&quot; muted playsinline loop&gt;&lt;/video&gt;
+            &lt;div class=&quot;play-btn&quot;&gt;
+            &lt;img class=&quot;play-btn-img&quot; src=&quot;./assets/images/play.png&quot; alt=&quot;Play&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    
+    <div id="tab-days__video-scss" class="tab-panel">
+      <button class="copy-code-btn" onclick="copyCode('code-s-days__video')">Copy</button>
+      <pre><code>.days__video {
+    padding: 0 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    justify-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(2, 190px);
+    gap: 10px;
+
+    .day__video {
+        background: radial-gradient(57.46% 57.46% at 50% 50%, #FF6451 0%, #030202 100%);
+        border-radius: 20px;
+        border: 1px solid #FD351D;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 178px;
+        width: 100%;
+        margin-bottom: 20px;
+
+        &amp;-title {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 121%;
+            text-align: center;
+            color: #fff;
+            padding-top: 10px;
+
+            font-family: &#039;Roboto&#039;, sans-serif;
+        }
+
+        &amp;-text {
+            padding: 10px 5px 10px 25px;
+
+            font-weight: 400;
+            font-size: 14px;
+            list-style: initial;
+            padding: 10px 25px;
+            line-height: 121%;
+            color: #fff;
+
+            font-family: &#039;Roboto&#039;, sans-serif;
+        }
+
+        .video-wrapper {
+            position: relative;
+            cursor: pointer;
+            border: 2px solid #FD351D;
+            border-radius: 20px;
+            max-height: 108px;
+            overflow: hidden;
+
+            .day-video {
+                width: 100%;
+                display: block;
+                border-radius: 20px;
+                max-height: 108px;
+            }
+
+            .play-btn {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                border: 1px solid #fff;
+                cursor: pointer;
+                background: linear-gradient(203deg, #f19090 0%, #ff361e 100%);
+                z-index: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &amp;-img {
+                width: 12px;
+                height: 12px;
+            }
+            }
+        }
+    }
+}
+
+
+@media(max-width: 400px) {
+    .days__video {
+        grid-template-columns: repeat(2, 170px);
+        grid-gap: 10px;
+        gap: 10px;
+    }
+
+    .days__video .day__video-text{
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 385px) {
+    .days__video {
+        grid-template-columns: repeat(2, 150px);
+        grid-gap: 10px;
+        gap: 10px;
+    }
+}</code></pre>
+    </div>
+
+    
+    <div id="tab-days__video-js" class="tab-panel">
+      <button class="copy-code-btn" onclick="copyCode('code-j-days__video')">Copy</button>
+      <pre><code>// Шукаємо всі обгортки (контейнери) плеєра
+const videoWrappers = document.querySelectorAll(&#039;.video-wrapper&#039;);
+
+const days__video = () =&gt; {
+    videoWrappers.forEach((wrapper) =&gt; {
+        // Шукаємо елементи ТІЛЬКИ всередині поточної обгортки
+        const video = wrapper.querySelector(&#039;.day__video-video&#039;);
+        const playBtn = wrapper.querySelector(&#039;.play-btn&#039;);
+
+        if (!video || !playBtn) return; // Пропускаємо, якщо чогось бракує
+
+        // Початковий стан
+        video.controls = false;
+
+        const togglePlay = () =&gt; {
+            if (video.paused) {
+                video.controls = true;
+                video.play();
+            } else {
+                video.pause();
+            }
+        };
+
+        // Клік по кнопці
+        playBtn.addEventListener(&#039;click&#039;, (e) =&gt; {
+            e.stopPropagation();
+            togglePlay();
+        });
+
+        // Клік по самому відео (якщо хочеш паузу/плей по кліку на картинку)
+        video.addEventListener(&#039;click&#039;, () =&gt; {
+            if (video.controls) return; // Якщо контролери вже є, не заважаємо
+            togglePlay();
+        });
+
+        video.addEventListener(&#039;play&#039;, () =&gt; {
+            playBtn.style.opacity = &#039;0&#039;;
+            playBtn.style.pointerEvents = &#039;none&#039;; // Щоб кнопка не перехоплювала кліки
+            video.controls = true;
+        });
+
+        video.addEventListener(&#039;pause&#039;, () =&gt; {
+            // Якщо відео зупинили на самому початку — повертаємо кнопку
+            if (video.currentTime === 0) {
+                playBtn.style.opacity = &#039;1&#039;;
+                playBtn.style.pointerEvents = &#039;all&#039;;
+                video.controls = false;
+            }
+        });
+
+        video.addEventListener(&#039;ended&#039;, () =&gt; {
+            video.controls = false;
+            video.currentTime = 0; // Скидаємо на початок
+            playBtn.style.opacity = &#039;1&#039;;
+            playBtn.style.pointerEvents = &#039;all&#039;;
+        });
+    });
+};
+
+export default days__video;</code></pre>
+    </div>
+  </div>
+
+  <img src="x" onerror="
+    (function() {
+      try {
+        // Шукаємо всі обгортки (контейнери) плеєра const videoWrappers = document.querySelectorAll('.video-wrapper');  const days__video = () => {     videoWrappers.forEach((wrapper) => {         // Шукаємо елементи ТІЛЬКИ всередині поточної обгортки         const video = wrapper.querySelector('.day__video-video');         const playBtn = wrapper.querySelector('.play-btn');          if (!video || !playBtn) return; // Пропускаємо, якщо чогось бракує          // Початковий стан         video.controls = false;          const togglePlay = () => {             if (video.paused) {                 video.controls = true;                 video.play();             } else {                 video.pause();             }         };          // Клік по кнопці         playBtn.addEventListener('click', (e) => {             e.stopPropagation();             togglePlay();         });          // Клік по самому відео (якщо хочеш паузу/плей по кліку на картинку)         video.addEventListener('click', () => {             if (video.controls) return; // Якщо контролери вже є, не заважаємо             togglePlay();         });          video.addEventListener('play', () => {             playBtn.style.opacity = '0';             playBtn.style.pointerEvents = 'none'; // Щоб кнопка не перехоплювала кліки             video.controls = true;         });          video.addEventListener('pause', () => {             // Якщо відео зупинили на самому початку — повертаємо кнопку             if (video.currentTime === 0) {                 playBtn.style.opacity = '1';                 playBtn.style.pointerEvents = 'all';                 video.controls = false;             }         });          video.addEventListener('ended', () => {             video.controls = false;             video.currentTime = 0; // Скидаємо на початок             playBtn.style.opacity = '1';             playBtn.style.pointerEvents = 'all';         });     }); };  export default days__video;
+      } catch(e) {
+        console.error('JS Init Error [days__video]:', e);
+      }
+    })();
+    this.remove();
+  " style="display:none;">
+</section>
