@@ -1,0 +1,232 @@
+<section class="component-card" id="card-start_date_badge_1" data-name="start_date_badge_1">
+  <style>.start_date_badge_1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px auto 0;
+  gap: 10px;
+}
+.start_date_badge_1-left {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  border-radius: 56px;
+  margin: 0;
+  min-width: 168px;
+  height: 39px;
+  background: linear-gradient(90deg, #ff0202 0%, #990101 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.start_date_badge_1-right {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 65%;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000;
+  margin: 0;
+  border-radius: 32px;
+  background: #fff;
+  white-space: nowrap;
+  min-width: 168px;
+  height: 39px;
+  gap: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 395px) {
+  .s5__content-number {
+    font-size: 100px;
+  }
+  .s5__content-text {
+    font-size: 12px;
+  }
+  .s5__content-top-title {
+    font-size: 17px;
+  }
+  .start_date_badge_1-left {
+    font-size: 12px;
+    min-width: 150px;
+    height: 35px;
+  }
+  .start_date_badge_1-right {
+    font-size: 12px;
+    line-height: 65%;
+    min-width: 150px;
+    height: 35px;
+  }
+}</style>
+
+  <div class="component-header">
+    <h2>start_date_badge_1</h2>
+    <div class="component-controls">
+      <button class="btn-add" onclick="addToProject('start_date_badge_1')">➕ Add</button>
+      <button class="btn-del" onclick="deleteFullComponent('start_date_badge_1')">🗑 Delete</button>
+    </div>
+  </div>
+
+  <div class="tabs-nav">
+    <button class="tab-link active" onclick="openTab(event, 'start_date_badge_1', 'preview')">Preview</button>
+    <button class="tab-link" onclick="openTab(event, 'start_date_badge_1', 'html')">HTML</button>
+    <button class="tab-link" onclick="openTab(event, 'start_date_badge_1', 'scss')">SCSS</button>
+    <button class="tab-link" onclick="openTab(event, 'start_date_badge_1', 'js')">JS</button>
+  </div>
+
+  <div class="tabs-content">
+    <div id="tab-start_date_badge_1-preview" class="tab-panel active">
+      <div class="component-body"><a href="" class="start_date_badge_1" data-component>
+    <p class="start_date_badge_1-left">
+        1 month access
+    </p>
+    <div class="start_date_badge_1-right">
+        <p>Start:</p>
+        <span class="badge_1_date-block"></span>
+    </div>
+</a></div>
+    </div>
+    
+    <div id="tab-start_date_badge_1-html" class="tab-panel">
+      <button class="copy-code-btn" onclick="copyCode('code-h-start_date_badge_1')">Copy</button>
+      <pre><code id="code-h-start_date_badge_1">&lt;a href=&quot;&quot; class=&quot;start_date_badge_1&quot; data-component&gt;
+    &lt;p class=&quot;start_date_badge_1-left&quot;&gt;
+        1 month access
+    &lt;/p&gt;
+    &lt;div class=&quot;start_date_badge_1-right&quot;&gt;
+        &lt;p&gt;Start:&lt;/p&gt;
+        &lt;span class=&quot;badge_1_date-block&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/a&gt;</code></pre>
+    </div>
+
+    
+    <div id="tab-start_date_badge_1-scss" class="tab-panel">
+      <button class="copy-code-btn" onclick="copyCode('code-s-start_date_badge_1')">Copy</button>
+      <pre><code>.start_date_badge_1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px auto 0;
+  gap: 10px;
+
+  &amp;-left {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+
+    border-radius: 56px;
+    margin: 0;
+    min-width: 168px;
+    height: 39px;
+    background: linear-gradient(90deg, #ff0202 0%, #990101 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &amp;-right {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 65%;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000;
+    margin: 0;
+    border-radius: 32px;
+    background: #fff;
+    white-space: nowrap;
+
+    min-width: 168px;
+    height: 39px;
+    gap: 5px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 395px) {
+  .s5__content {
+    &amp;-number {
+      font-size: 100px;
+    }
+
+    &amp;-text {
+      font-size: 12px;
+    }
+
+    &amp;-top-title {
+      font-size: 17px;
+    }
+  }
+
+  .start_date_badge_1 {
+    &amp;-left {
+      font-size: 12px;
+      min-width: 150px;
+      height: 35px;
+    }
+
+    &amp;-right {
+      font-size: 12px;
+      line-height: 65%;
+      min-width: 150px;
+      height: 35px;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    
+    <div id="tab-start_date_badge_1-js" class="tab-panel">
+      <button class="copy-code-btn" onclick="copyCode('code-j-start_date_badge_1')">Copy</button>
+      <pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; {
+
+    const dateBlock = document.querySelector(&#039;.badge_1_date-block&#039;);
+
+    const months = [
+        &#039;January&#039;,&#039;February&#039;,&#039;March&#039;,&#039;April&#039;,&#039;May&#039;,&#039;June&#039;,
+        &#039;July&#039;,&#039;August&#039;,&#039;September&#039;,&#039;October&#039;,&#039;November&#039;,&#039;December&#039;
+    ];
+
+    if (dateBlock) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        const day = tomorrow.getDate();
+        const month = months[tomorrow.getMonth()];
+
+        dateBlock.textContent = `${day} ${month}`;
+    }
+
+});</code></pre>
+    </div>
+  </div>
+
+  <img src="x" onerror="
+    (function() {
+      try {
+        document.addEventListener(&quot;DOMContentLoaded&quot;, () => {      const dateBlock = document.querySelector('.badge_1_date-block');      const months = [         'January','February','March','April','May','June',         'July','August','September','October','November','December'     ];      if (dateBlock) {         const tomorrow = new Date();         tomorrow.setDate(tomorrow.getDate() + 1);          const day = tomorrow.getDate();         const month = months[tomorrow.getMonth()];          dateBlock.textContent = `${day} ${month}`;     }  });
+      } catch(e) {
+        console.error('JS Init Error [start_date_badge_1]:', e);
+      }
+    })();
+    this.remove();
+  " style="display:none;">
+</section>
