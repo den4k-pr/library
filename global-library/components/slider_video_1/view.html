@@ -1,6 +1,5 @@
 <section class="component-card" id="card-slider_video_1" data-name="slider_video_1">
-  <style>
-    .slider_video_1 {
+  <style>.slider_video_1 {
   position: relative;
 }
 .slider_video_1-slider {
@@ -154,10 +153,7 @@
   width: 220px;
   height: 380px;
   border-radius: 20px;
-}
-    /* Захист: якщо JS таки випаде текстом, ми його не покажемо */
-    #card-slider_video_1 script[data-logic] { display: none !important; }
-  </style>
+}</style>
 
   <div class="component-header">
     <h2>slider_video_1</h2>
@@ -176,8 +172,7 @@
 
   <div class="tabs-content">
     <div id="tab-slider_video_1-preview" class="tab-panel active">
-      <div class="component-body">
-        <section class="slider_video_1" data-component>
+      <div class="component-body"><section class="slider_video_1" data-component>
     <h3 class="slider_video_1-title">
         <img src="./assets/images/video.png" alt="">
         Video Testimonials
@@ -232,12 +227,11 @@
         <button class="slider_video_1-popup-close">✕</button>
         <video id="popupVideo" controls playsinline preload="metadata"></video>
     </div>
-</div>
-      </div>
+</div></div>
     </div>
     
     <div id="tab-slider_video_1-html" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-h-slider_video_1')">Copy HTML</button>
+      <button class="copy-code-btn" onclick="copyCode('code-h-slider_video_1')">Copy</button>
       <pre><code id="code-h-slider_video_1">&lt;section class=&quot;slider_video_1&quot; data-component&gt;
     &lt;h3 class=&quot;slider_video_1-title&quot;&gt;
         &lt;img src=&quot;./assets/images/video.png&quot; alt=&quot;&quot;&gt;
@@ -298,8 +292,8 @@
 
     
     <div id="tab-slider_video_1-scss" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-s-slider_video_1')">Copy SCSS</button>
-      <pre><code id="code-s-slider_video_1">.slider_video_1 {
+      <button class="copy-code-btn" onclick="copyCode('code-s-slider_video_1')">Copy</button>
+      <pre><code>.slider_video_1 {
   position: relative;
 
   &amp;-slider {
@@ -488,8 +482,8 @@
 
     
     <div id="tab-slider_video_1-js" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-j-slider_video_1')">Copy JS</button>
-      <pre><code id="code-j-slider_video_1">{/* &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css&quot; /&gt;
+      <button class="copy-code-btn" onclick="copyCode('code-j-slider_video_1')">Copy</button>
+      <pre><code>{/* &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css&quot; /&gt;
     &lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js&quot;&gt;&lt;/script&gt; */}
 
@@ -570,85 +564,14 @@
     </div>
   </div>
 
-  <script data-logic="slider_video_1">
+  <img src="x" onerror="
     (function() {
-      console.log('⚡ Init Component: slider_video_1');
       try {
-        (function () {
-  // ---------- POPUP ----------
-  const popup = document.getElementById('videoPopup');
-  const video = document.getElementById('popupVideo');
-
-  function openPopup(src) {
-    if (!src) return;
-
-    video.src = src;
-    video.currentTime = 0;
-    video.play();
-
-    popup.classList.add('active');
-  }
-
-  function closePopup() {
-    video.pause();
-    video.removeAttribute('src');
-    video.load();
-
-    popup.classList.remove('active');
-  }
-
-  document.addEventListener('click', (e) => {
-    // відкриття popup
-    const trigger = e.target.closest('.slider_video_1-trigger');
-    if (trigger) {
-      const src = trigger.dataset.videoSrc;
-      openPopup(src);
-      return;
-    }
-
-    // закриття popup
-    if (
-      e.target.classList.contains('slider_video_1-popup-overlay') ||
-      e.target.classList.contains('slider_video_1-popup-close')
-    ) {
-      closePopup();
-    }
-  });
-
-  // ---------- SLICK ----------
-  $(document).ready(function () {
-    initSlider(
-      '.slider_video_1-slider',
-      '.slider_video_1-buttons-prev',
-      '.slider_video_1-buttons-next'
-    );
-  });
-
-  function initSlider(slider, prev, next) {
-    $(slider).slick({
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-
-      arrows: true,
-      prevArrow: $(prev),
-      nextArrow: $(next),
-
-      autoplay: true,
-      autoplaySpeed: 3000,
-
-      pauseOnHover: true,
-      pauseOnFocus: true,
-
-      fade: false,
-      cssEase: 'ease-in-out',
-      speed: 500,
-    });
-  }
-})();
-      } catch(e) { 
-        console.error('❌ JS Error in component [slider_video_1]:', e); 
+        (function () {   // ---------- POPUP ----------   const popup = document.getElementById('videoPopup');   const video = document.getElementById('popupVideo');    function openPopup(src) {     if (!src) return;      video.src = src;     video.currentTime = 0;     video.play();      popup.classList.add('active');   }    function closePopup() {     video.pause();     video.removeAttribute('src');     video.load();      popup.classList.remove('active');   }    document.addEventListener('click', (e) => {     // відкриття popup     const trigger = e.target.closest('.slider_video_1-trigger');     if (trigger) {       const src = trigger.dataset.videoSrc;       openPopup(src);       return;     }      // закриття popup     if (       e.target.classList.contains('slider_video_1-popup-overlay') ||       e.target.classList.contains('slider_video_1-popup-close')     ) {       closePopup();     }   });    // ---------- SLICK ----------   $(document).ready(function () {     initSlider(       '.slider_video_1-slider',       '.slider_video_1-buttons-prev',       '.slider_video_1-buttons-next'     );   });    function initSlider(slider, prev, next) {     $(slider).slick({       infinite: true,       slidesToShow: 1,       slidesToScroll: 1,        arrows: true,       prevArrow: $(prev),       nextArrow: $(next),        autoplay: true,       autoplaySpeed: 3000,        pauseOnHover: true,       pauseOnFocus: true,        fade: false,       cssEase: 'ease-in-out',       speed: 500,     });   } })();
+      } catch(e) {
+        console.error('JS Init Error [slider_video_1]:', e);
       }
     })();
-  </script>
+    this.remove();
+  " style="display:none;">
 </section>
