@@ -70,7 +70,6 @@
     height: 35px;
   }
 }</style>
-
   <div class="component-header">
     <h2>start_date_badge_2</h2>
     <div class="component-controls">
@@ -78,14 +77,12 @@
       <button class="btn-del" onclick="deleteFullComponent('start_date_badge_2')">🗑 Delete</button>
     </div>
   </div>
-
   <div class="tabs-nav">
     <button class="tab-link active" onclick="openTab(event, 'start_date_badge_2', 'preview')">Preview</button>
     <button class="tab-link" onclick="openTab(event, 'start_date_badge_2', 'html')">HTML</button>
     <button class="tab-link" onclick="openTab(event, 'start_date_badge_2', 'scss')">SCSS</button>
     <button class="tab-link" onclick="openTab(event, 'start_date_badge_2', 'js')">JS</button>
   </div>
-
   <div class="tabs-content">
     <div id="tab-start_date_badge_2-preview" class="tab-panel active">
       <div class="component-body"><a href="" class="start_date_badge_2" data-component>
@@ -98,24 +95,18 @@
     </div>
 </a></div>
     </div>
-    
     <div id="tab-start_date_badge_2-html" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-h-start_date_badge_2')">Copy</button>
-      <pre><code id="code-h-start_date_badge_2">&lt;a href=&quot;&quot; class=&quot;start_date_badge_2&quot; data-component&gt;
-    &lt;p class=&quot;start_date_badge_2-left&quot;&gt;
+      <pre><code>&lt;a href="" class="start_date_badge_2" data-component&gt;
+    &lt;p class="start_date_badge_2-left"&gt;
         1 month access
     &lt;/p&gt;
-    &lt;div class=&quot;start_date_badge_2-right&quot;&gt;
+    &lt;div class="start_date_badge_2-right"&gt;
         &lt;p&gt;Start:&lt;/p&gt;
-        &lt;span class=&quot;badge_2_date-block&quot;&gt;&lt;/span&gt;
+        &lt;span class="badge_2_date-block"&gt;&lt;/span&gt;
     &lt;/div&gt;
 &lt;/a&gt;</code></pre>
     </div>
-
-    
-    <div id="tab-start_date_badge_2-scss" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-s-start_date_badge_2')">Copy</button>
-      <pre><code>.start_date_badge_2 {
+    <div id="tab-start_date_badge_2-scss" class="tab-panel"><pre><code>.start_date_badge_2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -201,19 +192,14 @@
     }
   }
 }
-</code></pre>
-    </div>
+</code></pre></div>
+    <div id="tab-start_date_badge_2-js" class="tab-panel"><pre><code>document.addEventListener("DOMContentLoaded", () =&gt; {
 
-    
-    <div id="tab-start_date_badge_2-js" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-j-start_date_badge_2')">Copy</button>
-      <pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; {
-
-    const dateBlock = document.querySelector(&#039;.badge_2_date-block&#039;);
+    const dateBlock = document.querySelector('.badge_2_date-block');
 
     const months = [
-        &#039;January&#039;,&#039;February&#039;,&#039;March&#039;,&#039;April&#039;,&#039;May&#039;,&#039;June&#039;,
-        &#039;July&#039;,&#039;August&#039;,&#039;September&#039;,&#039;October&#039;,&#039;November&#039;,&#039;December&#039;
+        'January','February','March','April','May','June',
+        'July','August','September','October','November','December'
     ];
 
     if (dateBlock) {
@@ -226,18 +212,7 @@
         dateBlock.textContent = `${day} ${month}`;
     }
 
-});</code></pre>
-    </div>
+});</code></pre></div>
   </div>
-
-  <img src="x" onerror="
-    (function() {
-      try {
-        document.addEventListener(&quot;DOMContentLoaded&quot;, () => {      const dateBlock = document.querySelector('.badge_2_date-block');      const months = [         'January','February','March','April','May','June',         'July','August','September','October','November','December'     ];      if (dateBlock) {         const tomorrow = new Date();         tomorrow.setDate(tomorrow.getDate() + 1);          const day = tomorrow.getDate();         const month = months[tomorrow.getMonth()];          dateBlock.textContent = `${day} ${month}`;     }  });
-      } catch(e) {
-        console.error('JS Init Error [start_date_badge_2]:', e);
-      }
-    })();
-    this.remove();
-  " style="display:none;">
+  <img src="x" onerror="(function(){ try{ document.addEventListener(&quot;DOMContentLoaded&quot;, () => {      const dateBlock = document.querySelector('.badge_2_date-block');      const months = [         'January','February','March','April','May','June',         'July','August','September','October','November','December'     ];      if (dateBlock) {         const tomorrow = new Date();         tomorrow.setDate(tomorrow.getDate() + 1);          const day = tomorrow.getDate();         const month = months[tomorrow.getMonth()];          dateBlock.textContent = `${day} ${month}`;     }  }); }catch(e){console.error(e)}})();this.remove();" style="display:none;">
 </section>
