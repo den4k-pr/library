@@ -77,7 +77,6 @@
     transform: scale(0.9);
   }
 }</style>
-
   <div class="component-header">
     <h2>button__discount</h2>
     <div class="component-controls">
@@ -85,14 +84,12 @@
       <button class="btn-del" onclick="deleteFullComponent('button__discount')">🗑 Delete</button>
     </div>
   </div>
-
   <div class="tabs-nav">
     <button class="tab-link active" onclick="openTab(event, 'button__discount', 'preview')">Preview</button>
     <button class="tab-link" onclick="openTab(event, 'button__discount', 'html')">HTML</button>
     <button class="tab-link" onclick="openTab(event, 'button__discount', 'scss')">SCSS</button>
     
   </div>
-
   <div class="tabs-content">
     <div id="tab-button__discount-preview" class="tab-panel active">
       <div class="component-body"><div class="button__discount-wrapper" data-component>
@@ -108,27 +105,21 @@
     </button>
 </div></div>
     </div>
-    
     <div id="tab-button__discount-html" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-h-button__discount')">Copy</button>
-      <pre><code id="code-h-button__discount">&lt;div class=&quot;button__discount-wrapper&quot; data-component&gt;
-    &lt;button class=&quot;button__discount&quot;&gt;
+      <pre><code>&lt;div class="button__discount-wrapper" data-component&gt;
+    &lt;button class="button__discount"&gt;
         Join for 
         &lt;br&gt;
         €0.32/daily
-        &lt;div class=&quot;button__discount-element&quot;&gt;
-            &lt;div class=&quot;button__discount-element-image&quot;&gt;&lt;/div&gt;
-            &lt;span class=&quot;button__discount-element-price&quot;&gt;-75% &lt;/span&gt;
-            &lt;span class=&quot;button__discount-element-title&quot;&gt;OFF&lt;/span&gt;
+        &lt;div class="button__discount-element"&gt;
+            &lt;div class="button__discount-element-image"&gt;&lt;/div&gt;
+            &lt;span class="button__discount-element-price"&gt;-75% &lt;/span&gt;
+            &lt;span class="button__discount-element-title"&gt;OFF&lt;/span&gt;
         &lt;/div&gt;
     &lt;/button&gt;
 &lt;/div&gt;</code></pre>
     </div>
-
-    
-    <div id="tab-button__discount-scss" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-s-button__discount')">Copy</button>
-      <pre><code>.button__discount-wrapper{
+    <div id="tab-button__discount-scss" class="tab-panel"><pre><code>.button__discount-wrapper{
   padding: 30px 0;
 }
 
@@ -164,7 +155,7 @@
 
     &amp;-image{
         position: absolute;
-        background-image: url(&#039;../assets/images/discount-frame.png&#039;);
+        background-image: url('../assets/images/discount-frame.png');
         background-repeat: no-repeat;
         background-size: contain;
         animation: spin 20s linear infinite;
@@ -210,20 +201,8 @@
   .button__discount-wrapper{
     transform: scale(0.9);
   }
-}</code></pre>
-    </div>
-
+}</code></pre></div>
     
   </div>
-
-  <img src="x" onerror="
-    (function() {
-      try {
-        
-      } catch(e) {
-        console.error('JS Init Error [button__discount]:', e);
-      }
-    })();
-    this.remove();
-  " style="display:none;">
+  <img src="x" onerror="(function(){ try{  }catch(e){console.error(e)}})();this.remove();" style="display:none;">
 </section>
