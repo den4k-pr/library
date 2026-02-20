@@ -277,7 +277,7 @@
 }
 .button__discount-element-image {
   position: absolute;
-  background-image: url("~@images/discount-frame.png");
+  background-image: url("../assets/images/discount-frame.png");
   background-repeat: no-repeat;
   background-size: contain;
   animation: spin 20s linear infinite;
