@@ -350,14 +350,29 @@
       }
     }
 
-    async function addToProject(name) {
-      const res = await apiCall('add-component', name);
-      if (res.success) {
-        alert('✅ Компонент "' + name + '" успішно додано у ваш локальний проект!');
-      } else {
-        alert('❌ Помилка: ' + (res.error || 'невідомо'));
-      }
+   async function addToProject(name) {
+    const btn = event.target;
+    const originalText = btn.innerHTML;
+    
+    // Візуальна індикація завантаження
+    btn.disabled = true;
+    btn.innerHTML = '⌛ Downloading...';
+    btn.style.opacity = '0.7';
+
+    const res = await apiCall('add-component', name);
+    
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+    btn.style.opacity = '1';
+
+    if (res.success) {
+        // Замість звичайного alert — красивіше сповіщення в консоль або кастомний UI
+        console.log('✅ Success:', res.message);
+        alert('✅ Компонент "' + name + '" та всі медіа-файли успішно додано!');
+    } else {
+        alert('❌ Помилка: ' + (res.error || 'Сервер не відповідає'));
     }
+}
 
     /**
      * ПОВНЕ ВИДАЛЕННЯ КОМПОНЕНТА З GITHUB
@@ -446,6 +461,7 @@
   </script>
 </body>
 </html>
+
 
 
 
