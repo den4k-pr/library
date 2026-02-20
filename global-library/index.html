@@ -245,21 +245,64 @@
       }
     }
 
-    async function deleteComponent(name) {
-      if (!confirm('Видалити ' + name + ' з бібліотеки?')) return;
-      
-      const res = await apiCall('delete-component', name);
-      if (res.success) {
-        const card = document.getElementById('card-' + name);
-        card.style.opacity = '0.5';
-        card.style.pointerEvents = 'none';
-        setTimeout(() => card.remove(), 300);
-      } else {
-        alert('❌ Помилка при видаленні: ' + (res.error || 'невідомо'));
+async function deleteFullComponent(compName) {
+  const token = prompt("Введіть GitHub Token для видалення:");
+  if (!token) return;
+
+  const auth = { headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' } };
+  const base = `https://api.github.com/repos/den4k-pr/library/contents`;
+
+  try {
+    // 1. Видаляємо папку з файлами (треба видалити кожен файл всередині)
+    const folderRes = await fetch(`${base}/global-library/components/row/${compName}`, auth);
+    if (folderRes.ok) {
+      const files = await folderRes.json();
+      for (let file of files) {
+        await fetch(`${base}/${file.path}`, {
+          method: 'DELETE',
+          ...auth,
+          body: JSON.stringify({ message: `Delete ${file.name}`, sha: file.sha })
+        });
       }
     }
-  </script>
+
+    // 2. Чистимо components.html
+    const htmlFile = await (await fetch(`${base}/global-library/components/components.html`, auth)).json();
+    let htmlContent = decodeURIComponent(escape(atob(htmlFile.content)));
+    const htmlRegex = new RegExp(`[\\s\\S]*?`, 'g');
+    
+    await fetch(`${base}/global-library/components/components.html`, {
+      method: 'PUT', ...auth,
+      body: JSON.stringify({
+        message: `Remove ${compName} from HTML`,
+        sha: htmlFile.sha,
+        content: btoa(unescape(encodeURIComponent(htmlContent.replace(htmlRegex, ''))))
+      })
+    });
+
+    // 3. Чистимо main.css
+    const cssFile = await (await fetch(`${base}/global-library/main.css`, auth)).json();
+    let cssContent = decodeURIComponent(escape(atob(cssFile.content)));
+    const cssRegex = new RegExp(`/\\* CSS_START:${compName} \\*/[\\s\\S]*?/\\* CSS_END:${compName} \\*/`, 'g');
+
+    await fetch(`${base}/global-library/main.css`, {
+      method: 'PUT', ...auth,
+      body: JSON.stringify({
+        message: `Remove ${compName} from CSS`,
+        sha: cssFile.sha,
+        content: btoa(unescape(encodeURIComponent(cssContent.replace(cssRegex, ''))))
+      })
+    });
+
+    alert("🔥 Компонент повністю винищено!");
+    location.reload();
+  } catch (e) {
+    alert("Помилка при видаленні. Перевір консоль.");
+    console.error(e);
+  }
+}  </script>
 </body>
 </html>
+
 
 
