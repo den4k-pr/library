@@ -218,25 +218,48 @@
     /**
      * ЗАВАНТАЖЕННЯ КОМПОНЕНТІВ
      */
-    async function loadComponents() {
-      try {
-        // Уникаємо кешування через параметр v
-        const response = await fetch('components/components.html?v=' + Date.now());
-        if (!response.ok) throw new Error('Сховище порожнє');
-        
-        const html = await response.text();
-        document.getElementById('lib-content').innerHTML = html;
+    async function loadLibrary() {
+    const container = document.getElementById('lib-content');
+    try {
+      // 1. Отримуємо список компонентів
+      const regRes = await fetch('components/registry.json?v=' + Date.now());
+      const registry = await regRes.json();
+      
+      container.innerHTML = ''; // Очищуємо лоадер
 
-        // Авто-фікс позиціонування для кожного завантаженого компонента
-        fixComponentStyles();
-      } catch (err) {
-        document.getElementById('lib-content').innerHTML = `
-          <div style="text-align:center; padding: 50px;">
-            <p style="color: #94a3b8;">Бібліотека порожня або файл не знайдено.</p>
-            <p style="font-size: 12px; color: #64748b; margin-top: 10px;">Використовуйте scripts/transfer.js для додавання компонентів.</p>
-          </div>`;
+      if (registry.length === 0) {
+        container.innerHTML = '<p style="text-align:center;">Бібліотека порожня</p>';
+        return;
       }
+
+      // 2. Завантажуємо кожен компонент окремо
+      for (const compName of registry) {
+        try {
+          const compRes = await fetch(`components/${compName}/view.html?v=` + Date.now());
+          const compHtml = await compRes.text();
+          
+          const wrapper = document.createElement('div');
+          wrapper.innerHTML = compHtml;
+          
+          // Важливо: скрипти всередині innerHTML не виконуються самі
+          // Тому ми переносимо їх вручну
+          container.appendChild(wrapper.firstElementChild);
+          
+          const script = wrapper.querySelector('script');
+          if (script) {
+            const newScript = document.createElement('script');
+            newScript.textContent = script.textContent;
+            document.body.appendChild(newScript);
+          }
+        } catch (err) {
+          console.error(`Не вдалося завантажити ${compName}`);
+        }
+      }
+    } catch (e) {
+      container.innerHTML = '<p style="text-align:center; color:red;">Помилка реєстру</p>';
     }
+  }
+    
 
     function fixComponentStyles() {
       document.querySelectorAll('.component-body').forEach(body => {
@@ -247,7 +270,7 @@
     }
 
     // Запуск при завантаженні сторінки
-    window.onload = loadComponents;
+    window.onload = loadLibrary;
     
     /**
      * ПОШУК ПО БІБЛІОТЕЦІ
@@ -404,4 +427,5 @@
   </script>
 </body>
 </html>
+
 
