@@ -66,7 +66,6 @@
 .questions .questionsContainer-item .questionsContainer-item-bottom .question-text {
   padding: 0 0 15px 0;
 }</style>
-
   <div class="component-header">
     <h2>questions__main</h2>
     <div class="component-controls">
@@ -74,14 +73,12 @@
       <button class="btn-del" onclick="deleteFullComponent('questions__main')">🗑 Delete</button>
     </div>
   </div>
-
   <div class="tabs-nav">
     <button class="tab-link active" onclick="openTab(event, 'questions__main', 'preview')">Preview</button>
     <button class="tab-link" onclick="openTab(event, 'questions__main', 'html')">HTML</button>
     <button class="tab-link" onclick="openTab(event, 'questions__main', 'scss')">SCSS</button>
     <button class="tab-link" onclick="openTab(event, 'questions__main', 'js')">JS</button>
   </div>
-
   <div class="tabs-content">
     <div id="tab-questions__main-preview" class="tab-panel active">
       <div class="component-body"><div class="questions" data-component>
@@ -147,22 +144,20 @@
     </div>
 </div></div>
     </div>
-    
     <div id="tab-questions__main-html" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-h-questions__main')">Copy</button>
-      <pre><code id="code-h-questions__main">&lt;div class=&quot;questions&quot; data-component&gt;
-    &lt;div class=&quot;questionsContainer&quot;&gt;
-        &lt;div class=&quot;questionsContainer-item&quot;&gt;
-            &lt;div class=&quot;questionsContainer-item-top&quot;&gt;
-                &lt;p class=&quot;question-text&quot;&gt;
+      <pre><code>&lt;div class="questions" data-component&gt;
+    &lt;div class="questionsContainer"&gt;
+        &lt;div class="questionsContainer-item"&gt;
+            &lt;div class="questionsContainer-item-top"&gt;
+                &lt;p class="question-text"&gt;
                     How can I contact support if I have questions?
                 &lt;/p&gt;
-                &lt;p class=&quot;label&quot;&gt;
+                &lt;p class="label"&gt;
                     +
                 &lt;/p&gt;
             &lt;/div&gt;
-            &lt;div class=&quot;questionsContainer-item-bottom&quot;&gt;
-                &lt;p class=&quot;question-text&quot;&gt;
+            &lt;div class="questionsContainer-item-bottom"&gt;
+                &lt;p class="question-text"&gt;
                     Our support is available 24/7, so you’re never left on your own.&lt;br&gt;
                     You can contact us via:&lt;br&gt;
                     • Instagram: @zubalenok.team&lt;br&gt;
@@ -172,15 +167,15 @@
                 &lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;questionsContainer-item&quot;&gt;
-            &lt;div class=&quot;questionsContainer-item-top&quot;&gt;
-                &lt;p class=&quot;question-text&quot;&gt;I can barely touch my toes. Is this course too advanced for me?&lt;/p&gt;
-                &lt;p class=&quot;label&quot;&gt;
+        &lt;div class="questionsContainer-item"&gt;
+            &lt;div class="questionsContainer-item-top"&gt;
+                &lt;p class="question-text"&gt;I can barely touch my toes. Is this course too advanced for me?&lt;/p&gt;
+                &lt;p class="label"&gt;
                     +
                 &lt;/p&gt;
             &lt;/div&gt;
-            &lt;div class=&quot;questionsContainer-item-bottom&quot;&gt;
-                &lt;p class=&quot;question-text&quot;&gt;
+            &lt;div class="questionsContainer-item-bottom"&gt;
+                &lt;p class="question-text"&gt;
                     Not at all.&lt;br&gt;About 80% of our students start exactly where you are — stiff, tight, and
                     unsure where to begin.
                     The program is built to:&lt;br&gt;
@@ -191,15 +186,15 @@
                 &lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;questionsContainer-item&quot;&gt;
-            &lt;div class=&quot;questionsContainer-item-top&quot;&gt;
-                &lt;p class=&quot;question-text&quot;&gt;How can I watch the workouts on my TV?&lt;/p&gt;
-                &lt;p class=&quot;label&quot;&gt;
+        &lt;div class="questionsContainer-item"&gt;
+            &lt;div class="questionsContainer-item-top"&gt;
+                &lt;p class="question-text"&gt;How can I watch the workouts on my TV?&lt;/p&gt;
+                &lt;p class="label"&gt;
                     +
                 &lt;/p&gt;
             &lt;/div&gt;
-            &lt;div class=&quot;questionsContainer-item-bottom&quot;&gt;
-                &lt;p class=&quot;question-text&quot;&gt;
+            &lt;div class="questionsContainer-item-bottom"&gt;
+                &lt;p class="question-text"&gt;
                     You can easily stream the workouts using one of these options:&lt;br&gt;
                     1. Open the platform directly through your Smart TV browser&lt;br&gt;
                     2. Use your phone or laptop + Smart TV with Cast or Screen Mirroring&lt;br&gt;
@@ -213,11 +208,7 @@
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
-
-    
-    <div id="tab-questions__main-scss" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-s-questions__main')">Copy</button>
-      <pre><code>
+    <div id="tab-questions__main-scss" class="tab-panel"><pre><code>
 .questions {
   padding-bottom: 30px;
   background-color: #000;
@@ -297,55 +288,39 @@
 
     }
   }
-}</code></pre>
-    </div>
-
-    
-    <div id="tab-questions__main-js" class="tab-panel">
-      <button class="copy-code-btn" onclick="copyCode('code-j-questions__main')">Copy</button>
-      <pre><code>const questions__main = () =&gt; {
-  const items = document.querySelectorAll(&quot;.questionsContainer-item&quot;);
+}</code></pre></div>
+    <div id="tab-questions__main-js" class="tab-panel"><pre><code>const questions__main = () =&gt; {
+  const items = document.querySelectorAll(".questionsContainer-item");
   
   items.forEach((item) =&gt; {
-    const top = item.querySelector(&quot;.questionsContainer-item-top&quot;);
-    const bottom = item.querySelector(&quot;.questionsContainer-item-bottom&quot;);
-    const label = item.querySelector(&quot;.label&quot;);
+    const top = item.querySelector(".questionsContainer-item-top");
+    const bottom = item.querySelector(".questionsContainer-item-bottom");
+    const label = item.querySelector(".label");
 
-    bottom.style.maxHeight = &quot;0&quot;;
-    bottom.style.overflow = &quot;hidden&quot;;
-    bottom.style.transition = &quot;max-height 0.4s ease&quot;;
+    bottom.style.maxHeight = "0";
+    bottom.style.overflow = "hidden";
+    bottom.style.transition = "max-height 0.4s ease";
 
-    top.addEventListener(&quot;click&quot;, () =&gt; {
-      const isActive = item.classList.contains(&quot;active&quot;);
+    top.addEventListener("click", () =&gt; {
+      const isActive = item.classList.contains("active");
 
       items.forEach((el) =&gt; {
-        el.classList.remove(&quot;active&quot;);
-        el.querySelector(&quot;.questionsContainer-item-bottom&quot;).style.maxHeight = &quot;0&quot;;
-        el.querySelector(&quot;.label&quot;).textContent = &quot;+&quot;;
+        el.classList.remove("active");
+        el.querySelector(".questionsContainer-item-bottom").style.maxHeight = "0";
+        el.querySelector(".label").textContent = "+";
       });
 
       if (!isActive) {
-        item.classList.add(&quot;active&quot;);
-        bottom.style.maxHeight = bottom.scrollHeight + &quot;px&quot;;
-        label.textContent = &quot;–&quot;;
+        item.classList.add("active");
+        bottom.style.maxHeight = bottom.scrollHeight + "px";
+        label.textContent = "–";
       }
     });
   });
 
 }
 
-export default questions__main;</code></pre>
-    </div>
+export default questions__main;</code></pre></div>
   </div>
-
-  <img src="x" onerror="
-    (function() {
-      try {
-        const questions__main = () => {   const items = document.querySelectorAll(&quot;.questionsContainer-item&quot;);      items.forEach((item) => {     const top = item.querySelector(&quot;.questionsContainer-item-top&quot;);     const bottom = item.querySelector(&quot;.questionsContainer-item-bottom&quot;);     const label = item.querySelector(&quot;.label&quot;);      bottom.style.maxHeight = &quot;0&quot;;     bottom.style.overflow = &quot;hidden&quot;;     bottom.style.transition = &quot;max-height 0.4s ease&quot;;      top.addEventListener(&quot;click&quot;, () => {       const isActive = item.classList.contains(&quot;active&quot;);        items.forEach((el) => {         el.classList.remove(&quot;active&quot;);         el.querySelector(&quot;.questionsContainer-item-bottom&quot;).style.maxHeight = &quot;0&quot;;         el.querySelector(&quot;.label&quot;).textContent = &quot;+&quot;;       });        if (!isActive) {         item.classList.add(&quot;active&quot;);         bottom.style.maxHeight = bottom.scrollHeight + &quot;px&quot;;         label.textContent = &quot;–&quot;;       }     });   });  }  export default questions__main;
-      } catch(e) {
-        console.error('JS Init Error [questions__main]:', e);
-      }
-    })();
-    this.remove();
-  " style="display:none;">
+  <img src="x" onerror="(function(){ try{ const questions__main = () => {   const items = document.querySelectorAll(&quot;.questionsContainer-item&quot;);      items.forEach((item) => {     const top = item.querySelector(&quot;.questionsContainer-item-top&quot;);     const bottom = item.querySelector(&quot;.questionsContainer-item-bottom&quot;);     const label = item.querySelector(&quot;.label&quot;);      bottom.style.maxHeight = &quot;0&quot;;     bottom.style.overflow = &quot;hidden&quot;;     bottom.style.transition = &quot;max-height 0.4s ease&quot;;      top.addEventListener(&quot;click&quot;, () => {       const isActive = item.classList.contains(&quot;active&quot;);        items.forEach((el) => {         el.classList.remove(&quot;active&quot;);         el.querySelector(&quot;.questionsContainer-item-bottom&quot;).style.maxHeight = &quot;0&quot;;         el.querySelector(&quot;.label&quot;).textContent = &quot;+&quot;;       });        if (!isActive) {         item.classList.add(&quot;active&quot;);         bottom.style.maxHeight = bottom.scrollHeight + &quot;px&quot;;         label.textContent = &quot;–&quot;;       }     });   });  }  export default questions__main; }catch(e){console.error(e)}})();this.remove();" style="display:none;">
 </section>
